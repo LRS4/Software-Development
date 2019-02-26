@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	// a program to print inputted name
+	// a program to print the given name
 	
     string name = get_string("What is your name?\n");
     
