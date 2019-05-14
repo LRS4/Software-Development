@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h3>Your Portfolio</h3
+    >
+    <table class="table borderless" id="portfolioValue">
+        <tr>
+            <th>Balance: ${{ cash }}</th>
+        </tr>
+    </table>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total Value</th>
+            </tr>
+            </thead>
+            <!-- Iterate over database query for table rows and table data -->
+            <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.shares }}</td>
+                <td>${{ stock.price / stock.shares }}</td>
+                <td>${{ stock.price * stock.shares }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
