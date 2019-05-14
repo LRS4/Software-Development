@@ -1,0 +1,89 @@
+Resources:
+
+https://www.learn-c.org/en/Pointers
+
+https://study.cs50.net
+
+https://jasonalvernaz.com/2018/07/16/cs50-pset-5-speller-part-1/
+
+
+
+
+
+
+Hash Tables:
+
+A hash table is nothing but an array of linked lists - using a hash (key) function.
+
+
+Speller: https://bit.ly/2KkZux5
+
+Hash table: https://gist.github.com/yangrq1018/e769abd7489ea8f52351b30829796a15
+
+
+
+
+
+
+Linked Lists:
+
+The elements of the list are linked using pointers.
+
+
+Linked list traversal: 	https://ide.geeksforgeeks.org/YRJXD9NznX
+
+Simple linked list: 	https://ide.geeksforgeeks.org/9tDyhf4UX8
+
+
+
+
+
+
+Pointers: 
+
+Pointer declarations:   int *p; or int* p;   Read: p is a pointer to an int.
+
+De-referencing:   	x = *p;   Read: Assign to x the value pointed to by p.
+
+Address-of operator:   	p = &x;   Read: Assign to p (a pointer) the address of x.
+
+
+Intro:	https://ide.geeksforgeeks.org/ykMvBplbOC
+
+Swap: 	https://ide.geeksforgeeks.org/iWGDxWDTgl
+
+
+
+
+
+
+Arrays: 
+
+Arrays are data structures that allow us to store data of the same type in contiguous memory locations.
+
+String array: https://ide.geeksforgeeks.org/iy7QMgsZNo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
