@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+    <h3>Stock Price Search</h3>
+
+    <div>
+        <form action="/quote" method="POST">
+            <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" id="stockSearch" name="symbol" placeholder="NFLX" type="text" title="Enter the stock symbol and press enter">
+            </div>
+            <button type="submit" class="btn btn-primary">Get Quote</button>
+        </form>
+
+        <table class="table" id="quoteTable">
+            <tr>
+                <th>Company</th>
+                <th>Current Price</th>
+            </tr>
+            <tr>
+                <td width="50%">{{ name }}</td>
+                <td width="50%">${{ price }}</td>
+        </table>
+    </div>
+
+    <script>
+        $("#stockSearch").keyup(function() {
+            var input = $("#stockSearch").val()
+            var upper = input.toUpperCase();
+            $("#stockSearch").val(upper)
+        });
+    </script>
+
+{% endblock %}
