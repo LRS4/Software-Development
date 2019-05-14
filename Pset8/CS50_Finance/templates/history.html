@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h3>Transaction History</h3>
+
+    <div class="table-responsive" id="history_table">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <!-- Iterate over database query for table rows and table data -->
+            <tbody>
+            {% for line in history %}
+            <tr>
+                <td>{{ line.symbol }}</td>
+                <td>{{ line.shares }}</td>
+                <td>{{ line.type }}</td>
+                <td>${{ line.price }}</td>
+                <td>{{ line.date_time }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
