@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+            <p id="usernameTaken" style="display:none; color:red"><i class="fas fa-exclamation-circle"></i>
+            That username is taken. Try another.</p>
+            <p id="usernameAvailable" style="display:none; color:green"><i class="fas fa-check-circle"></i>
+            Username available.</p>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirm password" type="password">
+            <p id="passwordsMatch" style="display:none; color:green"><i class="fas fa-check-circle"></i>
+            Passwords match.</p>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+    <script>
+    $(document).ready(function(){
+
+        // if passwords match display looks good
+        $("input[name=confirmation]").keyup(function() {
+           let password = $("input[name=confirmation]").val();
+           let confirm = $("input[name=password]").val();
+
+           if (password == confirm) {
+               $("#passwordsMatch").css("display", "block");
+           } else {
+               $("#passwordsMatch").css("display", "none");
+           }
+        });
+
+        // if username field empty clear warnings and messages
+        $('input[name=username').keyup(function(){
+            if ($("input[name=username").val() == "") {
+    		    $("#usernameTaken").css("display", "none");
+    		    $("#usernameAvailable").css("display", "none");
+            }
+        });
+
+        // if username taken (false) display warning else display available
+		$('input[name=username').blur(function(){
+			var username = $('input[name=username]').val();
+			var url = "http://ide50-lrspencer123.legacy.cs50.io:8080/check?username=" + username;
+
+			$.ajax({
+				type:"GET",
+				url:url,
+				async:false,
+				dataType: "json",
+				success: function(data){
+
+				// Console log API results
+				console.log(data)
+
+				if (data == false) {
+                    $("#usernameTaken").css("display", "block");
+                    $("#usernameAvailable").css("display", "none");
+				} else if ($("input[name=username").val() == "") {
+				    $("#usernameTaken").css("display", "none");
+				    $("#usernameAvailable").css("display", "none");
+				} else {
+				    $("#usernameTaken").css("display", "none");
+				    $("#usernameAvailable").css("display", "block");
+				}
+
+				},
+				error: function(errorMessage){
+					alert("Error");
+				}
+			});
+		});
+
+		// on re-click clear warning
+        $('input[name=username').click(function() {
+            $("#usernameTaken").css("display", "none")
+        });
+
+	});
+    </script>
+{% endblock %}
