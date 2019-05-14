@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+
+        <!-- TODO -->
+
+        <div class="container">
+
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped" id="progress" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <div id="question_one" class="shadow-lg p-3 mb-5 bg-white rounded">
+                <h3>What is your name?</h3>
+                <input type="text" name="name" id="name" class="form-control" autocomplete="off" placeholder="e.g. Veronica" required>
+            </div>
+
+            <div id="question_two" class="shadow-lg p-3 mb-5 bg-white rounded" style="display: none">
+                <h3>What is your favourite food?</h3>
+                <select required name="food" id="food" class="custom-select">
+                  <option value="" disabled selected>Open this select menu</option>
+                  <option value="Italian">Italian</option>
+                  <option value="Chinese">Chinese</option>
+                  <option value="American">American</option>
+                  <option value="Thai">Thai</option>
+                  <option value="Indian">Indian</option>
+                  <option value="Japanese">Japanese</option>
+                  <option value="French">French</option>
+                </select>
+            </div>
+
+            <div id="question_three" class="shadow-lg p-3 mb-5 bg-white rounded" style="display: none">
+                <h3>What is your favourite drink?</h3>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" id="cola" value="Cola" name="drinks">
+                          <label class="custom-control-label" for="cola">Cola</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" id="coffee" value="Coffee" name="drinks">
+                          <label class="custom-control-label" for="coffee">Coffee</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" id="beer" value="Beer" name="drinks">
+                          <label class="custom-control-label" for="beer">Beer</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" id="tea" value="Tea" name="drinks" required>
+                          <label class="custom-control-label" for="tea">Tea</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" id="water" value="Water" name="drinks">
+                          <label class="custom-control-label" for="water">Water</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" id="wine" value="Wine" name="drinks">
+                          <label class="custom-control-label" for="wine">Wine</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+            <div id="submit_section" class="d-flex justify-content-center">
+                <button class="btn btn-primary btn-lg" type="submit" id="submit" style="display:none">Submit</button>
+            </div>
+
+        </div>
+
+    </form>
+
+    <script>
+
+        $(document).ready(function() {
+
+           // check question 1 and increase progress bar
+            $("#name").blur(function() {
+                let x = $("#progress").attr("aria-valuenow")
+                if (x!= 100 && $("#name").val() != "") {
+                    $('#progress').attr('aria-valuenow', 33).css('width', '33%');
+                }
+                console.log($("#name").val());
+                $("#question_two").css("display", "block");
+            });
+
+            $("#name").on('keypress',function(e) {
+                if(e.which == 13) {
+                    $("#question_two").css("display", "block");
+                }
+            });
+
+            // check question 2 and increase progress bar
+            $("#food").change(function() {
+                let x = $("#progress").attr("aria-valuenow")
+                if (x != 100 && $("#name").val() != "") {
+                    $('#progress').attr('aria-valuenow', 66).css('width', '66%');
+                }
+                console.log($("#food").val());
+                $("#question_three").css("display", "block");
+            });
+
+            // check question 3 and increase progress bar
+            $('input[name=drinks]').click(function() {
+                console.log($('input[name=drinks]:checked').val());
+                $('#progress').attr('aria-valuenow', 100).css('width', '100%');
+                $("#submit").css("display", "block");
+            });
+
+        });
+
+
+    </script>
+
+{% endblock %}
