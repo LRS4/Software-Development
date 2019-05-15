@@ -54,4 +54,4 @@ Final Project
 
 Review by [Medium](https://medium.com/@davidventuri/review-harvard-cs50-introduction-to-computer-science-75405e684a61)
 
-Course overview at [EdX] (https://www.edx.org/course/cs50s-introduction-to-computer-science)
+Course overview at [EdX](https://www.edx.org/course/cs50s-introduction-to-computer-science)
