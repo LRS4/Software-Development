@@ -1,10 +1,6 @@
 # CS50 Problem Sets
 
-CS50x is a true, comprehensive introduction to computer science. The course is taught by the 
-
-vivacious David Malan and hosted on edX. There are 13 weeks of instruction with 8 mandatory 
-
-problem sets (psets) and a final project:
+CS50x is a true, comprehensive introduction to computer science. The course is taught by the vivacious David Malan and hosted on edX. There are 13 weeks of instruction with 8 mandatory problem sets (psets) and a final project:
 
 ## Week 0
 
@@ -58,4 +54,4 @@ Final Project
 
 Review by [Medium](https://medium.com/@davidventuri/review-harvard-cs50-introduction-to-computer-science-75405e684a61)
 
-Course Overview at EdX
+Course overview at [EdX] (https://www.edx.org/course/cs50s-introduction-to-computer-science)
